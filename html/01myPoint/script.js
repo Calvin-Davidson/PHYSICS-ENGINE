@@ -9,5 +9,9 @@ canvas.height = height;
 
 // begin hier met jouw code voor deze opdracht
 
-let p = new Point(new Vector2d(50, 50), 10, "red");
-p.draw();
+function newCircle() {
+let p = new Point(new Vector2d(getRandomInt(0, width), getRandomInt(0, height)), getRandomInt(2, 50), getRandomColor());
+p.draw(context);
+}
+
+setInterval(newCircle, 10);
