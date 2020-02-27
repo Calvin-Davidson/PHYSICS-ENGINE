@@ -9,21 +9,29 @@ canvas.height = height;
 
 let MouseX;
 let MouseY;
+let MouseDown = false;
 
-let p = new Point(new Vector2d(width / 2, height / 2), 20, 0, 0, true)
-let p2 = new Point(new Vector2d(width / 3, height / 3), 20, 0, 0, true)
-p.draw(context);
-p2.draw(context);
-
+new Point(new Vector2d(width / 2, height / 2), 20, 0, 0, true)
+new Point(new Vector2d(width / 3, height / 3), 20, 0, 0, true)
+new Point(new Vector2d(width / 1.5, height / 1.5), 20, 0, 0, false).draw(context);
 
 document.addEventListener("mousedown", function (e) {
-    for(let i = 0; i < points.length; i++) {
-            if (new Vector2d(MouseX, MouseY).distanceTo(points[i].pos) <= points[i].radius) {
-                // als je in de circle drukt
-                points[i].clicked();
+    MouseDown = true
+
+    if (MouseDown === true) {
+        setInterval(function (e) {
+                for (let i = 0; i < points.length; i++) {
+                    if (new Vector2d(MouseX, MouseY).distanceTo(points[i].pos) <= points[i].radius) {
+                        points[i].clicked();
+                    }
+                }
+            if (MouseDown === false) {
+                clearInterval(this);
             }
-        }
-    });
+            }
+        );
+    }
+});
 
 
 function Update() {
@@ -36,10 +44,9 @@ function Update() {
 
 setInterval(Update, 0);
 
-
-
-
-
+document.addEventListener("mouseup", function (e) {
+    MouseDown = false
+});
 
 document.addEventListener("mousemove", function (e) {
     MouseX = e.pageX;

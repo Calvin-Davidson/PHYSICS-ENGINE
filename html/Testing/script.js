@@ -56,7 +56,7 @@ function update3() {
 
     for (let i = 0; i < 200; i++) {
         if (i % 1 === 0) {
-            // P3offset = -(P3offset)
+            P3offset = -(P3offset)
         }
         P3.CircleBorder(P3.pos.dx, P3.pos.dy, 10 + i * 15, 4*12, P3offset * (i * 2), P3Fuckery);
     }
