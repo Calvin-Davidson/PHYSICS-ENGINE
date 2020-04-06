@@ -12,7 +12,7 @@ function allLine() {
     p4.VelY = getRandomInt(-1, 1);
     p4.VelX = getRandomInt(-1, 1);
     p4.VelSpeed = getRandomInt(-10, 10);
-    new LiniarLine(0, 0, 0, width, getRandomColor());
+    new LinearFunction(0, 0, 0, width, getRandomColor());
 }
 allLine();
 allLine();

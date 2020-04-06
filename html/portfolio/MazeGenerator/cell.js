@@ -7,7 +7,14 @@ class cell {
         this.walls = [true, true, true, true];
     }
 
-    
+        show(context) {
+        context.beginPath();
+        context.fillStyle = "red";
+        context.fillRect(this.x, this.y, size, size);
+        context.fill();
+        context.closePath();
+        }
+
         checkNeighbors = function() {
             let neighbors = [];
 

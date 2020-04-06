@@ -15,7 +15,7 @@ let current;
 let size = 50;
 let ClearArraysWhenDone = false;
 
-let mazeTimer = 10;
+let mazeTimer = 2;
 let MazeTimerFast = true;
 
 setup();
@@ -64,21 +64,19 @@ function MazeGen() {
 
 
 function MazeGenTimer() {
+    let count = 0;
     if (MazeTimerFast) {
-        setTimeout(function () {
-            if (optionsLeft()) {
-                MazeGen();
-                draw();
-            }
-        }, size / mazeTimer);
+        count = 0;
     } else {
-        setTimeout(function () {
-            if (optionsLeft()) {
-                MazeGen();
-                draw();
-            }
-        }, size * mazeTimer);
+        count = size * mazeTimer * 10
     }
+
+    setTimeout(function () {
+        if (optionsLeft()) {
+            MazeGen();
+            draw();
+        }
+    }, count);
 }
 
 function draw() {
@@ -86,6 +84,7 @@ function draw() {
 
     if (optionsLeft()) {
         showCurrent();
+        current.show(context);
     }
 
     for (let i = 0; i < grid.length; i++) {
@@ -123,15 +122,6 @@ function line(x1, y1, x2, y2, color = "black") {
     context.lineTo(x2, y2);
     context.stroke();
     context.closePath();
-}
-
-function getRandomColor() {
-    let letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
 }
 
 
@@ -184,6 +174,9 @@ function optionsLeft() {
     }
     return false;
 }
+
+
+
 
 if (ClearArraysWhenDone) {
     Timer();
