@@ -7,9 +7,11 @@ let height = window.innerHeight;
 canvas.width = width;
 canvas.height = height;
 
+let dPoints = [];
+
 let A, B, distance;
-A = new dPoint(new Vector2d(100, 100), new Vector2d(2, 2), new Vector2d(0, 0), 150, "rgba(255, 0,0,0.3)", "A");
-B = new dPoint(new Vector2d(width / 2, height / 2), new Vector2d(-2, -2), new Vector2d(0, 0), 150, "rgba(0, 0,255,0.3)", "B");
+A = new dPoint(new Vector2d(100, 100), new Vector2d(4, 4), new Vector2d(0, 0), 150, "rgba(255, 0,0,0.3)", "A");
+B = new dPoint(new Vector2d(width / 2, height / 2), new Vector2d(-4, -4), new Vector2d(0, 0), 150, "rgba(0, 0,255,0.3)", "B");
 
 A.rad = new Vector2d(1, 1);
 A.tan = new Vector2d(1, 1);
@@ -30,19 +32,7 @@ function update() {
     A.tan.draw(context, A.pos, 1, "GREEN");
     B.tan.draw(context, B.pos, 1, "GREEN");
 
-
-    A.rad.magnitude = 1;
-    B.rad.magnitude = 1;
-
-    A.tan.perpendicular(A.rad);
-    B.tan.perpendicular(B.rad);
-
-    A.tan.magnitude = 1;
-    B.tan.magnitude = 1;
-
-
-    if (distance < A.radius + B.radius) {
-        console.log("COLLISON");
+    if (distance < B.radius + A.radius) {
 
         A.rad.magnitude = A.vel.dot(A.rad)
         A.tan.magnitude = A.vel.dot(A.tan);
@@ -62,6 +52,8 @@ function update() {
 
         A.vel.sumVector(A.rad, A.tan);
         B.vel.sumVector(B.rad, B.tan);
+
+        console.log("There was a collsion between the balls");
     }
 
 
@@ -76,3 +68,4 @@ function update() {
 }
 
 update();
+

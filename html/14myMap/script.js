@@ -14,6 +14,7 @@ BigMap.src = "images/map_highres.jpg"
 SmallMap = new Image();
 SmallMap.src = "images/map_lowres.jpg"
 
+
 let scaleX = BigMap.width/SmallMap.width;
 let scaleY = BigMap.height/SmallMap.height;
 
@@ -35,8 +36,7 @@ function animate() {
     context.drawImage(SmallMap, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
 }
 
-setInterval(animate, 10)
-
+setInterval(animate, 1)
 
 document.addEventListener("mousemove", function (e) {
     mouseX = e.pageX;

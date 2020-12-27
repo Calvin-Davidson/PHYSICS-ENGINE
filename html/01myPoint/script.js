@@ -11,7 +11,7 @@ let limit = 10;
 let hasLimit = true;
 let circles = [];
 
-console.log("true");
+
 
 function newCircle() {
     if (hasLimit == false || circles.length <= limit) {

@@ -14,9 +14,11 @@ function allLine() {
     p4.VelSpeed = getRandomInt(-10, 10);
     new LinearFunction(0, 0, 0, width, getRandomColor());
 }
+
 allLine();
 allLine();
 allLine();
+
 function Update() {
 
     context.clearRect(0, 0, width, height);
