@@ -1,5 +1,5 @@
 const canvas = document.getElementById("canvas"), context = canvas.getContext("2d");
-let diagonals = 2, size = 50, wallSpawnChange = 20, showProgress = !0, CanvasSizing = 2, start_x = 0, start_y = 0,
+let diagonals = 2, size = window.innerWidth * 2, wallSpawnChange = 20, showProgress = false, CanvasSizing = 2, start_x = 0, start_y = 0,
     end_x = size - 1, end_y = size - 1, width = 0, height = 0;
 0 === CanvasSizing ? window.innerWidth < window.innerHeight ? (height = window.innerWidth - 25, width = window.innerWidth - 25) : (height = window.innerHeight - 25, width = window.innerHeight - 25) : window.innerWidth > window.innerHeight ? (height = window.innerWidth - 25, width = window.innerWidth - 25) : (height = window.innerHeight - 25, width = window.innerHeight - 25), canvas.width = width, canvas.height = height;
 let start, end, current, path, grid = new Array(size), openSet = [], closedSet = [];

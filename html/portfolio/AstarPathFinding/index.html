@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pathfinding project</title>
 
-    <link id="cssTheme" rel="stylesheet" href="public/styling/cssBasic.css">
-    <link rel="shortcut icon" type="image/png" href="public/styling/c_icon.png">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -18,33 +16,19 @@
     <nav class="navbar navbar-inverse" style="margin-bottom: 0px;">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a id="refreshButton" class="navbar-brand" href="#">Pathfinding Visualizer</a>
+                <a id="refreshButton" class="navbar-brand" href="#">Pathfinding</a>
             </div>
 
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Algorithms<span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Add object<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li id="algorithmSelectorAstar" class="navbar-inverse navbar-nav"><a href="#">A* Search</a></li>
+                        <li id="AddCircleObject" class="navbar-inverse navbar-nav"><a href="#">Circle</a></li>
                     </ul>
                 </li>
-                <li id="startButtonAddObject" class="navbar-item navbar-inverse navbar-nav"><a href="#">Add circle</a></li>
-                <li id="startButtonStart">
-                    <button id="actualStartButton" class="btn btn-default navbar-btn" type="button" style="">Visualize</button>
-                </li>
-                <li id="startButtonClearBoard" class="navbar-inverse navbar-nav"><a href="#">Clear Board</a></li>
-                <li id="startButtonClearWalls" class="navbar-inverse navbar-nav"><a href="#">Clear Walls &amp;
-                    Weights</a></li>
-                <li id="startButtonClearPath" class="navbar-inverse navbar-nav"><a href="#">Clear Path</a></li>
-                <li class="dropdown">
-                    <a id="adjustSpeed" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Speed:
-                        Fast<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li id="adjustFast" class="navbar-inverse navbar-nav"><a href="#">Fast</a></li>
-                        <li id="adjustAverage" class="navbar-inverse navbar-nav"><a href="#">Average</a></li>
-                        <li id="adjustSlow" class="navbar-inverse navbar-nav"><a href="#">Slow</a></li>
-                    </ul>
-                </li>
+                <li id="ResetButton" class="navbar-inverse navbar-nav"><a href="#">Reset</a></li>
+                <li id="ClearObjects" class="navbar-inverse navbar-nav"><a href="#">Clear objects</a></li>
+                <li id="color_pallet"><a href="https://colorhunt.co/palette/2763">ColorPallet</a></li>
             </ul>
         </div>
     </nav>
@@ -53,15 +37,17 @@
 </body>
 
 <footer>
-    <script src="../../../lib/Color.js"></script>
-    <script src="../../../lib/MathTools.js"></script>
-    <script src="../../../lib/Vector2d.js"></script>
-    <script src="../../../lib/Point.js"></script>
+    <script src="Scripts/Utilities/Color.js"></script>
+    <script src="Scripts/Utilities/MathTools.js"></script>
+    <script src="Scripts/Utilities/Vector2d.js"></script>
 
-    <script src="CellData.js"></script>
-    <script src="PlayerInput.js"></script>
-    <script src="NavbarInteractions.js"></script>
-    <script src="script.js"></script>
+    <script src="Scripts/CellData.js"></script>
+    <script src="Scripts/Objects/Circle.js"></script>
+
+    <script src="Scripts/NavbarInteractions.js"></script>
+    <script src="Scripts/PlayerInteractions.js"></script>
+    <script src="Scripts/PathFinding.js"></script>
+    <script src="Scripts/script.js"></script>
 </footer>
 </html>
 
