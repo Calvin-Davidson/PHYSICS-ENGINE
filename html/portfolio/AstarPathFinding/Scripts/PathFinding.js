@@ -1,16 +1,13 @@
 const openSet = [];
 const closedSet = [];
-const path = [];
+let path = [];
 
 function checkForPath() {
-    openSet.length = 0;
-    closedSet.length = 0;
-    path.length = 0;
+    path = []
+
+    openSet.push(Cells[PlayerArrayPos.dy][PlayerArrayPos.dx]);
 
     let current;
-
-    openSet.push(Cells[Player.y][Player.x]);
-
     let foundPath = false;
     let end = Cells[PlayerTargetPos.dy][PlayerTargetPos.dx];
 
@@ -58,6 +55,8 @@ function checkForPath() {
                     neighbor.previous = current;
                 }
             }
+
+            current.neightbors[i] = neighbor;
         }
     }
 
@@ -69,13 +68,16 @@ function checkForPath() {
     }
 
     console.log("did i find a path?" + foundPath);
+
+    openSet.splice(0,openSet.length)
+    closedSet.splice(0,closedSet.length)
 }
 
 function heuristic(e, t) {
         let n, i;
         let diagonals = 0;
         let size = width
-        return n = Math.abs(e.x - t.x), i = Math.abs(e.y - t.y), 0 === diagonals ? width / size * (n + i) : width / size * (n + i) + (pythagorean(width / size, height / size) - 2) * Math.min(n, i)
+        return n = Math.abs(e.x - t.x);
 }
 
 function pythagorean(e, t) {

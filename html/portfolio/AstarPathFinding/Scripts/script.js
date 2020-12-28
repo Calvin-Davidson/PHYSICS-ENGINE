@@ -12,7 +12,9 @@ canvas.height = height;
 
 const Objects = [];
 const Cells = [];
-const Player = new Circle(50, 50, 25);
+const Player = new Circle(10, 10, 25);
+const PlayerArrayPos = new Vector2d(10, 10);
+
 const PlayerTargetPos = new Vector2d(50, 50);
 
 Player.strokeStyle = "#00adb5";
@@ -20,14 +22,14 @@ Player.fillStyle = "#222831";
 
 
 function init() {
-
-    for (let y = 0; y < height; y++) {
-        let array = new Array(width);
-        for (let x = 0; x < width; x++) {
-            array[x] = new CellData(x, y, getRandomColor());
+    for (let y = 0; y < Math.ceil(height / Player.radius * 2); y++) {
+        let array = new Array(Math.ceil(width / Player.radius * 2));
+        for (let x = 0; x < Math.ceil(width / Player.radius * 2); x++) {
+            array[x] = new CellData(x * (Player.radius / 2), y * (Player.radius / 2), x, y);
         }
         Cells[y] = array;
     }
+
 
     addCircle()
 
@@ -39,8 +41,12 @@ function init() {
 function animate() {
     clearCanvas();
     drawObjects();
-    Player.draw(context);
-    drawPath();
+    drawPlayer();
+
+    // als er een path is.
+    if (path.length > 0) {
+        drawPath();
+    }
 
     requestAnimationFrame(animate);
 }
@@ -60,9 +66,14 @@ function drawObjects() {
     }
 }
 
+function drawPlayer() {
+    Player.x = Cells[PlayerArrayPos.dy][PlayerArrayPos.dx].x;
+    Player.y = Cells[PlayerArrayPos.dy][PlayerArrayPos.dx].y;
+    Player.draw(context);
+}
+
 function drawPath() {
-    if (openSet.length === 0) return;
-    console.log("Drawing path")
+    if (path.length === 0) return;
 
     for (let i = 0; i < path.length; i++) {
         let value = path[i];
@@ -70,7 +81,6 @@ function drawPath() {
         context.beginPath();
 
         context.fillStyle = "green"
-        if (i < path.length/2) context.fillStyle = "blue"
 
         context.arc(value.x, value.y, 5, 0, 2 * Math.PI);
         context.fill()
@@ -81,8 +91,8 @@ function drawPath() {
     context.fillStyle = "#393e46";
 }
 
-function addCircle() {
-    Objects.push(new Circle(width / 2, height / 2, height / 20));
+function addCircle(radius) {
+    Objects.push(new Circle(width / 2, height / 2, radius));
 }
 
 function addRect() {

@@ -7,13 +7,13 @@ let previousMouseX;
 let previousMouseY;
 
 // events
-document.addEventListener("mouseup", function (e) {
+canvas.addEventListener("mouseup", function (e) {
     selectedObj = null;
 
     reCheckCellCollision();
 });
 
-document.addEventListener("mousemove", function (e) {
+canvas.addEventListener("mousemove", function (e) {
     previousMouseX = mouseX;
     previousMouseY = mouseY;
 
@@ -26,7 +26,7 @@ document.addEventListener("mousemove", function (e) {
     }
 });
 
-document.addEventListener("mousedown", function (e) {
+canvas.addEventListener("mousedown", function (e) {
     for (let i = 0; i < Objects.length; i++) {
         let obj = Objects[i];
         if (obj instanceof Circle) {
@@ -43,8 +43,8 @@ document.addEventListener("mousedown", function (e) {
     }
 
     /** Check of de speler daar wel heen kan bewegen. */
-    for (let y = 0; y < height; y++) {
-        for (let x = 0; x < width; x++) {
+    for (let y = 0; y < Math.ceil(height / Player.radius * 2); y++) {
+        for (let x = 0; x < Math.ceil(width / Player.radius * 2); x++) {
             let pos1 = x - mouseX;
             let pos2 = y - mouseY;
             let distanceTo = Math.sqrt(pos1 * pos1 + pos2 * pos2);
@@ -59,9 +59,9 @@ document.addEventListener("mousedown", function (e) {
     }
 
     console.log("De speler heeft een target position gekregen")
-    PlayerTargetPos.dx = mouseX;
-    PlayerTargetPos.dy = mouseY;
-
+    let celldata = CellData.getClosestCellFrom(mouseX, mouseY);
+    PlayerTargetPos.dx = celldata.arrayX;
+    PlayerTargetPos.dy = celldata.arrayY;
 
     checkForPath();
 });
@@ -73,8 +73,10 @@ function reCheckCellCollision() {
         obj.hasCollsion = false;
     }
 
-    for (let y = 0; y < height; y++) {
-        for (let x = 0; x < width; x++) {
+
+    for (let y = 0; y < Math.ceil(height / Player.radius * 2); y++) {
+        for (let x = 0; x < Math.ceil(width / Player.radius * 2); x++) {
+
             let cellData = Cells[y][x];
 
             for (let i = 0; i < Objects.length; i++) {
@@ -94,8 +96,8 @@ function reCheckCellCollision() {
         }
     }
 
-    for (let y = 0; y < height; y++) {
-        for (let x = 0; x < width; x++) {
+    for (let y = 0; y < Math.ceil(height / Player.radius * 2); y++) {
+        for (let x = 0; x < Math.ceil(width / Player.radius * 2); x++) {
             let cellData = Cells[y][x];
             cellData.checkNeightBors();
         }
