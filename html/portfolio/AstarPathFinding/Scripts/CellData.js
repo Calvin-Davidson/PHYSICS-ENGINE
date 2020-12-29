@@ -55,7 +55,6 @@ class CellData {
                 let pos2 = dy - cell.y;
 
                 let distanceTo = Math.sqrt(pos1 * pos1 + pos2 * pos2);
-                console.log(distanceTo)
 
                 if (distanceTo < currentClosestDist) {
                     closest = cell;
@@ -63,7 +62,6 @@ class CellData {
                 }
             }
         }
-        console.log(closest)
         return closest;
     }
 

@@ -60,7 +60,6 @@ canvas.addEventListener("mousedown", function (e) {
 
     console.log("De speler heeft een target position gekregen")
     let celldata = CellData.getClosestCellFrom(mouseX, mouseY);
-    console.log(celldata)
     PlayerTargetPos.dx = celldata.arrayX;
     PlayerTargetPos.dy = celldata.arrayY;
 

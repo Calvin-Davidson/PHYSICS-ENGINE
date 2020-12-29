@@ -49,6 +49,7 @@ function animate() {
 
     // als er een path is.
     if (path.length > 0) {
+        PlayerMovement();
         drawPath();
     }
 
@@ -62,6 +63,21 @@ function clearCanvas() {
     context.fillStyle = "#393e46";
     context.fill();
     context.closePath()
+}
+
+
+let moveTimer = 0;
+let moveDelay = 3;
+function PlayerMovement() {
+    if (moveTimer < moveDelay) {
+        moveTimer+=1;
+        return;
+    }
+    PlayerArrayPos.dx = path[path.length - 1].arrayX;
+    PlayerArrayPos.dy = path[path.length - 1].arrayY;
+
+    path.pop();
+    moveTimer = 0;
 }
 
 function drawObjects() {
@@ -122,8 +138,5 @@ function addCircle(radius) {
     updateGridCanvas();
 }
 
-function addRect() {
-    console.log("Rect objects are not yet implemented");
-}
 
 init();

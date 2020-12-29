@@ -59,18 +59,23 @@ function checkForPath() {
             current.neightbors[i] = neighbor;
         }
     }
+    console.log("did i find a path?" + foundPath);
+    openSet.splice(0,openSet.length)
+    closedSet.splice(0,closedSet.length)
+
+    if (!foundPath) {
+        return;
+    }
 
     let temp = current;
     path.push(temp);
     while (temp.previous) {
         path.push(temp.previous);
+        let t = temp;
         temp = temp.previous;
+        t.previous = null;
     }
 
-    console.log("did i find a path?" + foundPath);
-
-    openSet.splice(0,openSet.length)
-    closedSet.splice(0,closedSet.length)
 }
 
 function heuristic(e, t) {

@@ -11,6 +11,8 @@ document.getElementById("AddHugeCircleObject").addEventListener("mousedown", fun
 })
 document.getElementById("ClearObjects").addEventListener("mousedown", function (e) {
     Objects.length = 0;
+    reCheckCellCollision();
+    updateGridCanvas();
 })
 
 document.getElementById("ResetButton").addEventListener("mousedown", function (e) {
@@ -26,4 +28,17 @@ document.getElementById("ShowAndHideGrid").addEventListener("mousedown", functio
        Button.innerHTML = "ShowGrid";
        ShowCellsGrid = false;
    }
+});
+
+
+document.getElementById("MovementDelay1").addEventListener("mousedown", function (e) {
+    moveDelay = 0;
+});
+
+document.getElementById("MovementDelay2").addEventListener("mousedown", function (e) {
+    moveDelay = 2;
+});
+
+document.getElementById("MovementDelay3").addEventListener("mousedown", function (e) {
+    moveDelay = 4;
 });
