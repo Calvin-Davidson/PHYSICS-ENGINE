@@ -43,8 +43,8 @@ canvas.addEventListener("mousedown", function (e) {
     }
 
     /** Check of de speler daar wel heen kan bewegen. */
-    for (let y = 0; y < Math.ceil(height / Player.radius * 2); y++) {
-        for (let x = 0; x < Math.ceil(width / Player.radius * 2); x++) {
+    for (let y = 0; y < Math.ceil(height / Player.radius); y++) {
+        for (let x = 0; x < Math.ceil(width / Player.radius); x++) {
             let pos1 = x - mouseX;
             let pos2 = y - mouseY;
             let distanceTo = Math.sqrt(pos1 * pos1 + pos2 * pos2);
@@ -60,6 +60,7 @@ canvas.addEventListener("mousedown", function (e) {
 
     console.log("De speler heeft een target position gekregen")
     let celldata = CellData.getClosestCellFrom(mouseX, mouseY);
+    console.log(celldata)
     PlayerTargetPos.dx = celldata.arrayX;
     PlayerTargetPos.dy = celldata.arrayY;
 
@@ -68,16 +69,10 @@ canvas.addEventListener("mousedown", function (e) {
 
 
 function reCheckCellCollision() {
-    for (let i = 0; i < Objects.length; i++) {
-        let obj = Objects[i];
-        obj.hasCollsion = false;
-    }
-
-
-    for (let y = 0; y < Math.ceil(height / Player.radius * 2); y++) {
-        for (let x = 0; x < Math.ceil(width / Player.radius * 2); x++) {
-
+    for (let y = 0; y < Math.ceil(height / Player.radius); y++) {
+        for (let x = 0; x < Math.ceil(width / Player.radius); x++) {
             let cellData = Cells[y][x];
+            cellData.hasCollsion = false;
 
             for (let i = 0; i < Objects.length; i++) {
                 let obj = Objects[i];
@@ -88,7 +83,7 @@ function reCheckCellCollision() {
                     let pos2 = obj.y - cellData.y;
 
                     let distanceTo = Math.sqrt(pos1 * pos1 + pos2 * pos2);
-                    if (distanceTo < obj.radius) {
+                    if (distanceTo - (Player.radius / 2) < obj.radius) {
                         cellData.hasCollsion = true;
                     }
                 }
@@ -96,11 +91,12 @@ function reCheckCellCollision() {
         }
     }
 
-    for (let y = 0; y < Math.ceil(height / Player.radius * 2); y++) {
-        for (let x = 0; x < Math.ceil(width / Player.radius * 2); x++) {
+    for (let y = 0; y < Math.ceil(height / Player.radius); y++) {
+        for (let x = 0; x < Math.ceil(width / Player.radius); x++) {
             let cellData = Cells[y][x];
-            cellData.checkNeightBors();
+            cellData.checkNeighBores();
         }
     }
 
+    updateGridCanvas();
 }

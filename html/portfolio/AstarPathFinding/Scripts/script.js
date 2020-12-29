@@ -1,38 +1,40 @@
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 
+const CellsCanvas = document.createElement("canvas")
+const CellsContext = CellsCanvas.getContext("2d");
+
 const navbarOffset = document.getElementsByClassName("navbar")[0].offsetHeight;
 
 let width = window.innerWidth;
 let height = window.innerHeight - navbarOffset;
 
-canvas.width = width;
-canvas.height = height;
-
+canvas.width = CellsCanvas.width = width;
+canvas.height = CellsCanvas.height = height;
 
 const Objects = [];
 const Cells = [];
 const Player = new Circle(10, 10, 25);
 const PlayerArrayPos = new Vector2d(10, 10);
-
 const PlayerTargetPos = new Vector2d(50, 50);
+
+let ShowCellsGrid = false;
 
 Player.strokeStyle = "#00adb5";
 Player.fillStyle = "#222831";
 
 
 function init() {
-    for (let y = 0; y < Math.ceil(height / Player.radius * 2); y++) {
-        let array = new Array(Math.ceil(width / Player.radius * 2));
-        for (let x = 0; x < Math.ceil(width / Player.radius * 2); x++) {
-            array[x] = new CellData(x * (Player.radius / 2), y * (Player.radius / 2), x, y);
+    for (let y = 0; y < Math.ceil(height / Player.radius); y++) {
+        let array = new Array(Math.ceil(width / Player.radius));
+        for (let x = 0; x < Math.ceil(width / Player.radius); x++) {
+            array[x] = new CellData(x * (Player.radius), y * (Player.radius), x, y);
+            array[x].show(CellsContext);
         }
         Cells[y] = array;
     }
 
-
     addCircle()
-
 
     reCheckCellCollision();
     animate();
@@ -42,6 +44,8 @@ function animate() {
     clearCanvas();
     drawObjects();
     drawPlayer();
+
+    if (ShowCellsGrid) context.drawImage(CellsCanvas, 0, 0, width, height);
 
     // als er een path is.
     if (path.length > 0) {
@@ -91,8 +95,31 @@ function drawPath() {
     context.fillStyle = "#393e46";
 }
 
+
+function updateGridCanvas() {
+    for (let y = 0; y < Math.ceil(height / Player.radius); y++) {
+        for (let x = 0; x < Math.ceil(width / Player.radius); x++) {
+            let cell = Cells[y][x];
+
+            cell.show(CellsContext);
+
+            for (let i = 0; i < cell.neightbors.length; i++) {
+                CellsContext.beginPath()
+                CellsContext.moveTo(cell.x, cell.y);
+                CellsContext.lineTo(cell.neightbors[i].x, cell.neightbors[i].y);
+                CellsContext.stroke();
+                CellsContext.closePath();
+            }
+        }
+    }
+}
+
+
 function addCircle(radius) {
     Objects.push(new Circle(width / 2, height / 2, radius));
+
+    reCheckCellCollision();
+    updateGridCanvas();
 }
 
 function addRect() {

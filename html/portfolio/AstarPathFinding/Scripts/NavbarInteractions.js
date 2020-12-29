@@ -16,3 +16,14 @@ document.getElementById("ClearObjects").addEventListener("mousedown", function (
 document.getElementById("ResetButton").addEventListener("mousedown", function (e) {
     Objects.length = 0;
 })
+
+document.getElementById("ShowAndHideGrid").addEventListener("mousedown", function (e) {
+   let Button = document.getElementById("ShowAndHideGrid").children[0];
+   if (Button.innerHTML === "ShowGrid") {
+       Button.innerHTML = "HideGrid";
+       ShowCellsGrid = true;
+   } else {
+       Button.innerHTML = "ShowGrid";
+       ShowCellsGrid = false;
+   }
+});

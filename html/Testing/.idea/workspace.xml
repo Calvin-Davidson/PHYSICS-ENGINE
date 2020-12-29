@@ -19,15 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9ba8c0a-2ae4-4cb8-840d-c8ec030119f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Scripts/Objects/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/CellData.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/CellData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/NavbarInteractions.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/NavbarInteractions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/PathFinding.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PathFinding.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/PlayerInteractions.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PlayerInteractions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    <list default="true" id="23bb9f3a-df84-4fa9-a5a4-2b2f185121bf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../portfolio/AstarPathFinding/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../portfolio/AstarPathFinding/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../portfolio/AstarPathFinding/Scripts/CellData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../portfolio/AstarPathFinding/Scripts/CellData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../portfolio/AstarPathFinding/Scripts/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../portfolio/AstarPathFinding/Scripts/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +30,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="1mHQrBM0clLXQJmVWYu1ASp5Tfz" />
+  <component name="ProjectId" id="1mKWjmvkLpQRcXUZDTdsSMZoOyS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,18 +41,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Testing" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a9ba8c0a-2ae4-4cb8-840d-c8ec030119f4" name="Default Changelist" comment="" />
-      <created>1609148232236</created>
+      <changelist id="23bb9f3a-df84-4fa9-a5a4-2b2f185121bf" name="Default Changelist" comment="" />
+      <created>1609242899666</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1609148232236</updated>
-      <workItem from="1609148233276" duration="15526000" />
-      <workItem from="1609242498466" duration="4158000" />
+      <updated>1609242899666</updated>
+      <workItem from="1609242900709" duration="5000" />
+      <workItem from="1609242968540" duration="6000" />
     </task>
     <servers />
   </component>
@@ -75,11 +70,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609242966234">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609242966234" />
   </component>
 </project>
