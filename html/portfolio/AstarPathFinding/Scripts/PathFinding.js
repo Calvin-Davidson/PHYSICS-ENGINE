@@ -11,8 +11,6 @@ function checkForPath() {
     let foundPath = false;
     let end = Cells[PlayerTargetPos.dy][PlayerTargetPos.dx];
 
-
-    console.log("Starting pathfinding");
     while (openSet.length > 0) {
         let winner = 0;
         for (let i = 0; i < openSet.length; i++) {

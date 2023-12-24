@@ -7,7 +7,7 @@ const CellsContext = CellsCanvas.getContext("2d");
 const navbarOffset = document.getElementsByClassName("navbar")[0].offsetHeight;
 
 let width = window.innerWidth;
-let height = window.innerHeight - navbarOffset;
+let height = window.innerHeight;
 
 canvas.width = CellsCanvas.width = width;
 canvas.height = CellsCanvas.height = height;

@@ -18,7 +18,7 @@ canvas.addEventListener("mousemove", function (e) {
     previousMouseY = mouseY;
 
     mouseX = e.pageX;
-    mouseY = e.pageY - navbarOffset;
+    mouseY = e.pageY;
 
     if (selectedObj != null) {
         selectedObj.x += mouseX - previousMouseX;
